@@ -81,3 +81,24 @@ Start celery worker (redis should be running)
 `celery -A bright worker -l info -P gevent`
 
 DONE
+
+# WORKINGS
+
+### endpoint '/'
+Start page
+![image](https://user-images.githubusercontent.com/60225218/175807971-f3e5b378-0a81-41ce-bb23-dd3730657c89.png)
+
+## Authentication endpoints
+
+### Signup - endpoint '/auth/users/'
+![image](https://user-images.githubusercontent.com/60225218/175808023-48e61a42-48f2-451f-b227-de48512407cd.png)
+![image](https://user-images.githubusercontent.com/60225218/175808052-117d9f7c-4726-4029-b5b5-5b6f02aac54b.png)
+![image](https://user-images.githubusercontent.com/60225218/175808062-d2043d57-399c-4ee2-97b4-7acc06f7cedf.png)
+
+### Login - endpoint '/auth/jwt/create/'
+![image](https://user-images.githubusercontent.com/60225218/175808107-46da8cd0-59e3-4c41-b1fe-6d222f9df602.png)
+
+__Copy the access token__
+
+#### Use [MOD HEADER](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj) Browser Extension for adding `access_token` to header
+![image](https://user-images.githubusercontent.com/60225218/175808201-f28a9320-0ea5-4240-b14d-959a0d7967ff.png)
