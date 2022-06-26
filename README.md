@@ -26,5 +26,24 @@
 # Setup
 
 ```
-git clone
+git clone https://github.com/AlokPratapSingh22/plaid_finance.git
+cd plaid_finance
+# create a virtual env
+python -m virtualenv venv
+venv/Scripts/activate
+pip install -r requirements.txt
 ```
+
+create a `.env` file with the following template
+```
+PLAID_CLIENT_ID=<client id from plaid API dashboard>
+PLAID_SECRET=<sandbox secret from plaid API dashboard>
+PLAID_ENV=Sandbox
+PLAID_PRODUCTS=transactions
+PLAID_COUNTRY_CODES=US
+PLAID_REDIRECT_URI=http://localhost:3000/
+```
+
+`python manage.py makemigrations`
+
+`python manage.py migrate`
