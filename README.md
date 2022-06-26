@@ -23,6 +23,7 @@ localhost exposed via `ngrok`
 
 ## Fetch API endpoints
 
+- `get-institutions` - Get all institution_ids and names
 - `get-accounts/` - Get all accounts fetched from Plaid and stored in db
 - `get-transactions/` - Get all transactions fetched from Plaid and stored in db
 
@@ -84,21 +85,77 @@ DONE
 
 # WORKINGS
 
-### endpoint '/'
+### Start localserver
+`python manage.py runserver`
+
+### Start redis server
+`docker run -d -p 6379:6379 redis`
+
+### Start ngrok
+`ngrok http 8000`
+Paste into NGROKID
+![image](https://user-images.githubusercontent.com/60225218/175808965-fed4c4da-ec28-4fee-b7bd-f2966a34bf0b.png)
+
+### Start celery worker
+`celery -A bright worker -l INFO -p gevent`
+---
+
+### endpoint `/`
 Start page
 ![image](https://user-images.githubusercontent.com/60225218/175807971-f3e5b378-0a81-41ce-bb23-dd3730657c89.png)
 
 ## Authentication endpoints
 
-### Signup - endpoint '/auth/users/'
+### Signup - endpoint `/auth/users/`
 ![image](https://user-images.githubusercontent.com/60225218/175808023-48e61a42-48f2-451f-b227-de48512407cd.png)
 ![image](https://user-images.githubusercontent.com/60225218/175808052-117d9f7c-4726-4029-b5b5-5b6f02aac54b.png)
 ![image](https://user-images.githubusercontent.com/60225218/175808062-d2043d57-399c-4ee2-97b4-7acc06f7cedf.png)
 
-### Login - endpoint '/auth/jwt/create/'
+### Login - endpoint `/auth/jwt/create/`
 ![image](https://user-images.githubusercontent.com/60225218/175808107-46da8cd0-59e3-4c41-b1fe-6d222f9df602.png)
 
 __Copy the access token__
 
 #### Use [MOD HEADER](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj) Browser Extension for adding `access_token` to header
 ![image](https://user-images.githubusercontent.com/60225218/175808201-f28a9320-0ea5-4240-b14d-959a0d7967ff.png)
+![image](https://user-images.githubusercontent.com/60225218/175808367-0278a794-277a-42be-bfed-ec154dd06e19.png)
+
+### User profile view and update - endpoint `/auth/users/me/`
+![image](https://user-images.githubusercontent.com/60225218/175808431-534d92a8-d450-469e-86c6-6629dfb94e5a.png)
+
+## Plaid related APIs
+
+### Institutions - endpoint '/get-institutions/' (No Authentication Required)
+![image](https://user-images.githubusercontent.com/60225218/175808503-639dcd4b-2460-44c6-8464-4a665a395157.png)
+
+### Plaid Public Token - endpoint `/get-public-token/`
+
+_takes in a institution_id_
+
+![image](https://user-images.githubusercontent.com/60225218/175808589-0cb89741-d5b2-44fd-8eff-a4339e1530ed.png)
+
+![image](https://user-images.githubusercontent.com/60225218/175808625-78eeee1d-f44d-4098-bb34-a7ae18659802.png)
+
+> __COPY THIS public_token for next step__
+> webhook attached
+
+### Plaid Access Token - endpoint `/get-access-token/`
+
+_takes in public_token_
+
+![image](https://user-images.githubusercontent.com/60225218/175808715-b6df569d-e6c6-4421-b3a6-90c96c10d0ae.png)
+
+> triggers an async function to fetch accounts from plaidAPI
+> transaction fetch triggered by webhooks
+> celery logs
+> ![image](https://user-images.githubusercontent.com/60225218/175808775-dc2e6b67-48e1-43f6-af00-d959e649fc63.png)
+
+### List Accounts - endpoint `/get-accounts/`
+![image](https://user-images.githubusercontent.com/60225218/175808870-abed46e5-99c0-4d40-8b56-605d3c6bc836.png)
+
+## List Transactions - endpoint `/get-transactions/`
+![image](https://user-images.githubusercontent.com/60225218/175808893-26a5d362-13b5-42ae-b17a-5ce7c139d7d9.png)
+
+
+
+
