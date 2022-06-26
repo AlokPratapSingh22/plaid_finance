@@ -1,13 +1,19 @@
 # plaid_finance
+[![Windows](https://badgen.net/badge/icon/windows?icon=windows&label)](https://microsoft.com/windows/)[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)![django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![Terminal](https://badgen.net/badge/icon/terminal?icon=terminal&label)
 ### Plaid API with DjangoREST and celery
 
 `sqlite` Database  
+![SQLITE](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
 
 `celery` handles async tasks  
+![Celery](https://a11ybadges.com/badge?logo=celery)
 
 `redis` message broker  
+![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?&style=for-the-badge&logo=redis&logoColor=white)
 
 localhost exposed via `ngrok`  
+![ngrok](https://a11ybadges.com/badge?logo=ngrok)
 
 ## Signup, Login and Logout API endpoints
 
