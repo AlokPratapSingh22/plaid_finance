@@ -138,7 +138,8 @@ _takes in a institution_id_
 
 ![image](https://user-images.githubusercontent.com/60225218/175808625-78eeee1d-f44d-4098-bb34-a7ae18659802.png)
 
-> __COPY THIS public_token for next step__
+> __COPY THIS public_token for next step__  
+
 > webhook attached
 
 ### Plaid Access Token - endpoint `/get-access-token/`
@@ -147,9 +148,12 @@ _takes in public_token_
 
 ![image](https://user-images.githubusercontent.com/60225218/175808715-b6df569d-e6c6-4421-b3a6-90c96c10d0ae.png)
 
-> triggers an async function to fetch accounts from plaidAPI
-> transaction fetch triggered by webhooks
-> celery logs
+> triggers an async function to fetch accounts from plaidAPI  
+
+> transaction fetch triggered by webhooks  
+
+> celery logs  
+
 > ![image](https://user-images.githubusercontent.com/60225218/175808775-dc2e6b67-48e1-43f6-af00-d959e649fc63.png)
 
 ### List Accounts - endpoint `/get-accounts/`
