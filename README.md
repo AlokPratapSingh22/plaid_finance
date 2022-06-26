@@ -92,14 +92,16 @@ DONE
 `docker run -d -p 6379:6379 redis`
 
 ### Start ngrok
-`ngrok http 8000`
-Paste into NGROKID
+`ngrok http 8000`  
+
+Paste into NGROKID  
+
 ![image](https://user-images.githubusercontent.com/60225218/175808965-fed4c4da-ec28-4fee-b7bd-f2966a34bf0b.png)
 
 ### Start celery worker
 `celery -A bright worker -l INFO -p gevent`
 ---
-
+## ENDPOINTS
 ### endpoint `/`
 Start page
 ![image](https://user-images.githubusercontent.com/60225218/175807971-f3e5b378-0a81-41ce-bb23-dd3730657c89.png)
