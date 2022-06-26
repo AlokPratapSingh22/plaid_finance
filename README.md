@@ -46,4 +46,22 @@ PLAID_REDIRECT_URI=http://localhost:3000/
 
 `python manage.py makemigrations`
 
-`python manage.py migrate`
+`python manage.py migrate`  
+
+`python manage.py runserver`
+
+Start the redis server  
+`docker run -d -p 6379:6379 redis`
+
+NGROK start
+`ngrok http 8000`
+![image](https://user-images.githubusercontent.com/60225218/175806184-c372c1bc-6beb-4e87-9bae-ce2675fa13d3.png)
+Paste the copied-ID from created ngrok server at into `NGROKID` in `settings.py` file 
+![image](https://user-images.githubusercontent.com/60225218/175806239-ef2a9e42-a336-4453-a98b-12af8e919fef.png)
+
+This will create a online server for our app
+
+Start celery (redis should be running)
+`celery -A bright worker -l info -P gevent`
+
+DONE
