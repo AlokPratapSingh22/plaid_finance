@@ -164,4 +164,6 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Asia/Tehran'
-NGROKID = '9d30-202-142-122-157.in'
+
+
+NGROKID = '----------'
