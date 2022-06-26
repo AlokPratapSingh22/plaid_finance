@@ -1,6 +1,14 @@
 # plaid_finance
 ### Plaid API with DjangoREST and celery
 
+`sqlite` Database  
+
+`celery` handles async tasks  
+
+`redis` message broker  
+
+localhost exposed via `ngrok`  
+
 ## Signup, Login and Logout API endpoints
 
 - `auth/users/` - Create user using username, email, password, first_name and last_name.
@@ -25,6 +33,7 @@
 
 # Setup
 
+## Creating and activating virtualenv
 ```
 git clone https://github.com/AlokPratapSingh22/plaid_finance.git
 cd plaid_finance
@@ -33,6 +42,8 @@ python -m virtualenv venv
 venv/Scripts/activate
 pip install -r requirements.txt
 ```
+
+## Environment variables
 
 create a `.env` file with the following template
 ```
@@ -44,14 +55,15 @@ PLAID_COUNTRY_CODES=US
 PLAID_REDIRECT_URI=http://localhost:3000/
 ```
 
+## start local server
+
 `python manage.py makemigrations`
 
 `python manage.py migrate`  
 
 `python manage.py runserver`
 
-Start the redis server  
-`docker run -d -p 6379:6379 redis`
+## NGROK setup
 
 NGROK start
 `ngrok http 8000`
@@ -59,9 +71,13 @@ NGROK start
 Paste the copied-ID from created ngrok server at into `NGROKID` in `settings.py` file 
 ![image](https://user-images.githubusercontent.com/60225218/175806239-ef2a9e42-a336-4453-a98b-12af8e919fef.png)
 
-This will create a online server for our app
 
-Start celery (redis should be running)
+## celery setup
+
+Start the redis server  
+`docker run -d -p 6379:6379 redis`
+
+Start celery worker (redis should be running)
 `celery -A bright worker -l info -P gevent`
 
 DONE
