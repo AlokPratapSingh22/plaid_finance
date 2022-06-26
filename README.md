@@ -159,7 +159,7 @@ _takes in public_token_
 ### List Accounts - endpoint `/get-accounts/`
 ![image](https://user-images.githubusercontent.com/60225218/175808870-abed46e5-99c0-4d40-8b56-605d3c6bc836.png)
 
-## List Transactions - endpoint `/get-transactions/`
+### List Transactions - endpoint `/get-transactions/`
 ![image](https://user-images.githubusercontent.com/60225218/175808893-26a5d362-13b5-42ae-b17a-5ce7c139d7d9.png)
 
 
